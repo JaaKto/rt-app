@@ -1,10 +1,18 @@
 import styled from "styled-components"
 
+export const NavBar = styled.nav`
+  background-color: #24292e;
+  height: 80px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+`
+
 export const List = styled.ul`
-  margin: 0 10px 15px;
+  margin: 0 10px;
   list-style-type: none;
   display: flex;
-  justify-content: center;
+  align-items: center;
 `
 
 export const ListItem = styled.li`
@@ -12,9 +20,9 @@ export const ListItem = styled.li`
   padding: 10px 15px;
   a {
     text-decoration: none;
-    color: ${({ isActive }) => (isActive ? "#318435" : "white")};
+    color: ${({ isActive }) => (isActive ? "#ffffffb3" : "white")};
     &:hover {
-      color: #318435;
+      color: #ffffffb3;
     }
   }
 `
