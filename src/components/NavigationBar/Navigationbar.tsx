@@ -1,23 +1,19 @@
 import React from "react"
 import { Link, useLocation } from "react-router-dom"
 import { navigationArr } from "../../common/utils/utils"
+import * as S from "./NavigationBar.styles"
 
 export default () => {
   const { pathname } = useLocation()
   return (
     <nav>
-      <ul>
+      <S.List>
         {navigationArr.map(({ path, name }) => (
-          <li key={name}>
-            <Link
-              style={{ color: `${path === pathname ? "red" : "black"}` }}
-              to={path}
-            >
-              {name}
-            </Link>
-          </li>
+          <S.ListItem isActive={path === pathname} key={name}>
+            <Link to={path}>{name}</Link>
+          </S.ListItem>
         ))}
-      </ul>
+      </S.List>
     </nav>
   )
 }

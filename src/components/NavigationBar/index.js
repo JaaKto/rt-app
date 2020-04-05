@@ -1,1 +1,1 @@
-export { default as NavigationBar } from "./Navigationbar"
+export { default as NavigationBar } from "./NavigationBar"
