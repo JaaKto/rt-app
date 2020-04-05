@@ -20,7 +20,8 @@ export const ListItem = styled.li`
   padding: 10px 15px;
   a {
     text-decoration: none;
-    color: ${({ isActive }) => (isActive ? "#ffffffb3" : "white")};
+    color: ${(props: { isActive: boolean }) =>
+      props.isActive ? "#ffffffb3" : "white"};
     &:hover {
       color: #ffffffb3;
     }
