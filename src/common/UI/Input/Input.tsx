@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, FC } from "react"
 import * as S from "./Input.styles"
 
 type InputProps = {
@@ -7,7 +7,7 @@ type InputProps = {
   placeholder: string
 }
 
-export default ({ name, type, placeholder }: InputProps) => {
+export const Input: FC<InputProps> = ({ name, type, placeholder }) => {
   const [value, setValue] = useState("")
   return (
     <S.InputContainer>
