@@ -1,22 +1,16 @@
 import React, { useState, useEffect } from "react"
+import { fetchData } from "../../common/utils"
 import { UserList } from "../UserList"
 import { MessageContainer } from "./MessageContainer"
 import * as S from "./Messages.styles"
-
-const loadData = async () => {
-  const response = await fetch(
-    "https://wlvzi8eq1m.execute-api.eu-west-1.amazonaws.com/dev/simpleAPI",
-  )
-  const json = await response.json()
-  return json
-}
+import { User } from "."
 
 export default () => {
   const [activeUser, setActiveUser] = useState<number | null>(null)
-  const [users, setUsers] = useState([])
+  const [users, setUsers] = useState<User[]>([])
 
   useEffect(() => {
-    loadData().then(setUsers)
+    fetchData<User[]>("simpleAPI").then((res) => setUsers(res))
   }, [])
 
   return (

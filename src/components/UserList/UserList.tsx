@@ -1,8 +1,9 @@
 import React, { FC } from "react"
 import * as S from "./UserList.styles"
+import { User } from "../Messages"
 
 type UserListProps = {
-  users: Array<{ id: number; username: string; age: number; isActive: boolean }>
+  users: User[]
   activeUser: number | null
   setActiveUser: any
 }
