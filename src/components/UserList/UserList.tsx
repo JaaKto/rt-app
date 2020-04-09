@@ -2,13 +2,13 @@ import React, { FC } from "react"
 import * as S from "./UserList.styles"
 import { User } from "../Messages"
 
-type UserListProps = {
+interface UserList {
   users: User[]
   activeUser: number | null
-  setActiveUser: any
+  setActiveUser: (id: number) => void
 }
 
-export const UserList: FC<UserListProps> = ({
+export const UserList: FC<UserList> = ({
   users,
   activeUser,
   setActiveUser,
