@@ -3,13 +3,13 @@ import styled from "styled-components"
 export const NavBar = styled.nav`
   background-color: #24292e;
   height: 80px;
-  margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
 `
 
 export const List = styled.ul`
-  margin: 0 10px;
+  margin: 0 20px;
+  padding: 0;
   list-style-type: none;
   display: flex;
   align-items: center;

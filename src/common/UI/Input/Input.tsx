@@ -1,14 +1,14 @@
 import React, { useState, FC } from "react"
 import * as S from "./Input.styles"
 
-type InputProps = {
+interface Input {
   name: string
   type: string
   placeholder: string
 }
 
-export const Input: FC<InputProps> = ({ name, type, placeholder }) => {
-  const [value, setValue] = useState("")
+export const Input: FC<Input> = ({ name, type, placeholder }) => {
+  const [value, setValue] = useState<string>("")
   return (
     <S.InputContainer>
       <S.Label htmlFor={name}>{name}</S.Label>

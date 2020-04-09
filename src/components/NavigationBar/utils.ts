@@ -4,8 +4,8 @@ export const navigationList = [
     name: "Home",
   },
   {
-    path: "/userslist",
-    name: "Users List",
+    path: "/messages",
+    name: "Messages",
   },
 ]
 

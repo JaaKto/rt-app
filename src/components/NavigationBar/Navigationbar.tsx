@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom"
 import { navigationList, userPanelList } from "./utils"
 import * as S from "./NavigationBar.styles"
 
-export default () => {
+export const NavigationBar = () => {
   const { pathname } = useLocation()
   return (
     <header>
