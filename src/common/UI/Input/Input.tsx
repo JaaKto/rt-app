@@ -5,10 +5,18 @@ interface Input {
   name: string
   type: string
   placeholder: string
+  // value: any
+  handleChange: (e: any) => void
 }
 
-export const Input: FC<Input> = ({ name, type, placeholder }) => {
-  const [value, setValue] = useState<string>("")
+export const Input: FC<Input> = ({
+  name,
+  type,
+  placeholder,
+  // value,
+  handleChange,
+}) => {
+  // const [value, setValue] = useState<string>("")
   return (
     <S.InputContainer>
       <S.Label htmlFor={name}>{name}</S.Label>
@@ -17,8 +25,8 @@ export const Input: FC<Input> = ({ name, type, placeholder }) => {
         type={type}
         placeholder={placeholder}
         name={name}
-        value={value}
-        onChange={(e: any) => setValue(e.target.value)}
+        // value={value}
+        onChange={(e: any) => handleChange(e)}
       />
     </S.InputContainer>
   )
