@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 
 export default () => {
   const [isAuth, setAuth] = useState(!!localStorage.getItem("accessToken"))
-
-  useEffect(() => {}, [isAuth])
   return (
     <>
       <div>HomePage</div>
