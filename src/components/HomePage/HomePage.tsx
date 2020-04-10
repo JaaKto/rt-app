@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react"
 export default () => {
   const [isAuth, setAuth] = useState(!!localStorage.getItem("accessToken"))
 
-  useEffect(() => {}, [localStorage.getItem("accessToken")])
+  useEffect(() => {}, [isAuth])
   return (
     <>
       <div>HomePage</div>

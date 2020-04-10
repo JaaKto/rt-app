@@ -10,7 +10,6 @@ type InputEvent = FormEvent<HTMLInputElement>
 export const Login: FC = () => {
   const { push } = useHistory()
   const [error, setError] = useState("")
-  const [token, setToken] = useState("")
   const [state, setState] = useState({
     email: "jakub@jakub.jakub",
     password: "jakub",
