@@ -1,0 +1,17 @@
+{
+  "users": [
+    {
+      "email": "jakub@jakub.jakub",
+      "password": "$2a$10$dk726yx2jMo8vZNyMCEgMe4STGdygfiORvnpSJX8VZdNW4mlZW24.",
+      "firstname": "jakub",
+      "lastname": "jakub",
+      "age": "1",
+      "id": 1
+    },
+    {
+      "email": "admin@admin.admin",
+      "password": "$2a$10$qPD6.FF8aczTNU6Yzh3/ueNuv5Eo3ilDmhv53hWrolk2UILVNVRXO",
+      "id": 2
+    }
+  ]
+}
