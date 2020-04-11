@@ -1,9 +1,13 @@
-import React, { useState, FC, FormEvent } from "react"
+import React, { useState, FC, FormEvent, ChangeEvent } from "react"
 import { useHistory } from "react-router-dom"
 import { fetchData, setToken } from "common/utils"
 import { Input } from "common/UI"
 import { inputList } from "./utils"
 import * as S from "./Login.styles"
+
+type Response1 = {
+  accessToken: string
+}
 
 export const Login: FC = () => {
   const { push } = useHistory()
@@ -17,13 +21,13 @@ export const Login: FC = () => {
     e.preventDefault()
     fetchData("login", {
       method: "POST",
-      headers: {
+      headers: new Headers({
         Accept: "application/json",
         "Content-Type": "application/json;charset=UTF-8",
-      },
+      }),
       body: { email, password },
     })
-      .then((response) => setToken(response))
+      .then((response: any) => setToken(response))
       .then(() => {
         push("/")
       })
@@ -38,7 +42,7 @@ export const Login: FC = () => {
         {inputList.map((field) => (
           <Input
             key={field.id}
-            handleChange={(e: any) =>
+            handleChange={(e: ChangeEvent<HTMLInputElement>) =>
               setState({ ...state, [field.name]: e.target.value })
             }
             {...{ ...field }}

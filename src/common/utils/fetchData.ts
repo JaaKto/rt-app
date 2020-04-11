@@ -1,9 +1,10 @@
 import { getUsersUrl, loginUrl, signUpUrl } from "."
 
+type ObjectMap = { [key: string]: unknown }
 interface Options {
   method: "GET" | "POST" | "PUT" | "DELETE" | "PATCH"
-  headers?: any
-  body?: any
+  headers?: Headers
+  body?: ObjectMap
 }
 
 const handleError = (res: Response) => {
