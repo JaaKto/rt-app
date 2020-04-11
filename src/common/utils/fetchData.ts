@@ -33,7 +33,7 @@ export const fetchData = <T>(
 ): Promise<T> =>
   fetch(getUrl(endpoint), {
     method: options.method || "GET",
-    headers: { ...options.headers },
+    headers: options.headers,
     body: JSON.stringify(options.body),
   })
     .then(handleError)

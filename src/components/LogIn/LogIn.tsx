@@ -5,10 +5,6 @@ import { Input } from "common/UI"
 import { inputList } from "./utils"
 import * as S from "./Login.styles"
 
-type Response1 = {
-  accessToken: string
-}
-
 export const Login: FC = () => {
   const { push } = useHistory()
   const [error, setError] = useState("")
