@@ -1,4 +1,4 @@
-import { getUsersUrl, loginUrl } from "."
+import { getUsersUrl, loginUrl, signUpUrl } from "."
 
 interface Options {
   method: "GET" | "POST" | "PUT" | "DELETE" | "PATCH"
@@ -17,6 +17,8 @@ const getUrl = (url: string, endpoint: string) => {
   switch (url) {
     case "login":
       return loginUrl(endpoint)
+    case "register":
+      return signUpUrl(endpoint)
     case "getUsers":
       return getUsersUrl(endpoint)
     default:

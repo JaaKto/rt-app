@@ -9,3 +9,6 @@ export const getUsersUrl: ConcatString = (endpoint) =>
 
 export const loginUrl: ConcatString = (endpoint) =>
   `${PROTOCOL}://${HOST}:${PORT}/${endpoint}`
+
+export const signUpUrl: ConcatString = (endpoint) =>
+  `${PROTOCOL}://${HOST}:${PORT}/${endpoint}`

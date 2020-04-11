@@ -1,6 +1,6 @@
 import React, { useState, FC, FormEvent } from "react"
 import { useHistory } from "react-router-dom"
-import { fetchData } from "common/utils"
+import { fetchData, setToken } from "common/utils"
 import { Input } from "common/UI"
 import { inputList } from "./utils"
 import * as S from "./Login.styles"
@@ -23,7 +23,7 @@ export const Login: FC = () => {
       },
       body: { email, password },
     })
-      .then((res: any) => localStorage.setItem("accessToken", res.accessToken))
+      .then((response) => setToken(response))
       .then(() => {
         push("/")
       })

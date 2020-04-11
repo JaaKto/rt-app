@@ -2,10 +2,12 @@ export const navigationList = [
   {
     path: "/",
     name: "Home",
+    authorized: false,
   },
   {
     path: "/messages",
     name: "Messages",
+    authorized: true,
   },
 ]
 
@@ -13,16 +15,16 @@ export const userPanelList = [
   {
     path: "/login",
     name: "Log in",
-    isLoggedIn: false,
+    authorized: false,
   },
   {
     path: "/signup",
     name: "Sign up",
-    isLoggedIn: false,
+    authorized: false,
   },
   {
     path: "/",
     name: "Log out",
-    isLoggedIn: true,
+    authorized: true,
   },
 ]
