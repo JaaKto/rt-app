@@ -13,13 +13,13 @@ const handleError = (res: Response) => {
   return res
 }
 
-const getUrl = (url: string, endpoint: string) => {
-  switch (url) {
+const getUrl = (endpoint: string) => {
+  switch (endpoint) {
     case "login":
       return loginUrl(endpoint)
     case "register":
       return signUpUrl(endpoint)
-    case "getUsers":
+    case "simpleAPI":
       return getUsersUrl(endpoint)
     default:
       return ""
@@ -27,11 +27,10 @@ const getUrl = (url: string, endpoint: string) => {
 }
 
 export const fetchData = <T>(
-  url: string,
   endpoint: string,
   options = {} as Options,
 ): Promise<T> =>
-  fetch(getUrl(url, endpoint), {
+  fetch(getUrl(endpoint), {
     method: options.method || "GET",
     headers: { ...options.headers },
     body: JSON.stringify(options.body),

@@ -15,7 +15,7 @@ export const Login: FC = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     const { email, password } = state
     e.preventDefault()
-    fetchData("login", "login", {
+    fetchData("login", {
       method: "POST",
       headers: {
         Accept: "application/json",

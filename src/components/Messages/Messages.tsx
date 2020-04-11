@@ -10,7 +10,7 @@ export default () => {
   const [users, setUsers] = useState<User[]>([])
 
   useEffect(() => {
-    fetchData<User[]>("getUsers", "simpleAPI").then((res) => setUsers(res))
+    fetchData<User[]>("simpleAPI").then((res) => setUsers(res))
   }, [])
 
   return (

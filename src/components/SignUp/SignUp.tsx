@@ -15,7 +15,7 @@ export const SignUp: FC = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     const { email, password } = state
     e.preventDefault()
-    fetchData("register", "register", {
+    fetchData("register", {
       method: "POST",
       headers: {
         Accept: "application/json",
