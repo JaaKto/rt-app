@@ -5,6 +5,7 @@ import * as S from "./NavigationBar.styles"
 
 export const NavigationBar = () => {
   const { pathname } = useLocation()
+  const accessToken = !!localStorage.getItem("accessToken")
   return (
     <header>
       <S.NavBar>
@@ -16,11 +17,21 @@ export const NavigationBar = () => {
           ))}
         </S.List>
         <S.List>
-          {userPanelList.map(({ path, name }) => (
-            <S.ListItem isActive={path === pathname} key={name}>
-              <Link to={path}>{name}</Link>
-            </S.ListItem>
-          ))}
+          {userPanelList.map(({ path, name, isLoggedIn }) =>
+            !isLoggedIn
+              ? !accessToken && (
+                  <S.ListItem isActive={path === pathname} key={name}>
+                    <Link to={path}>{name}</Link>
+                  </S.ListItem>
+                )
+              : accessToken && (
+                  <S.ListItem isActive={false} key={name}>
+                    <Link to={path} onClick={() => localStorage.clear()}>
+                      {name}
+                    </Link>
+                  </S.ListItem>
+                ),
+          )}
         </S.List>
       </S.NavBar>
     </header>
