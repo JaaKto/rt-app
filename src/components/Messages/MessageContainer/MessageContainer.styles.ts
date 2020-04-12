@@ -4,4 +4,7 @@ export const MessagesContainer = styled.div`
   flex: 1;
   background-color: #3d434d;
   padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `

@@ -1,5 +1,6 @@
 import React, { FC } from "react"
 import * as S from "./MessageContainer.styles"
+import { MessageField } from "./MessageField"
 
 interface ActiveUser {
   activeUser: number | null
@@ -7,6 +8,7 @@ interface ActiveUser {
 
 export const MessageContainer: FC<ActiveUser> = ({ activeUser }) => (
   <S.MessagesContainer>
-    Your Conversation {activeUser && ` with User ${activeUser}`}
+    <span>Your Conversation {activeUser && ` with User ${activeUser}`}</span>
+    <MessageField {...{ activeUser }} />
   </S.MessagesContainer>
 )
