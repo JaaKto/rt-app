@@ -1,4 +1,4 @@
-import { getUsersUrl, loginUrl, signUpUrl } from "."
+import { getUsersUrl, loginUrl, signUpUrl, messages } from "."
 
 type ObjectMap = { [key: string]: unknown }
 interface Options {
@@ -22,6 +22,8 @@ const getUrl = (endpoint: string) => {
       return signUpUrl(endpoint)
     case "simpleAPI":
       return getUsersUrl(endpoint)
+    case "messages":
+      return messages()
     default:
       return ""
   }
