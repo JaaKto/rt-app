@@ -12,18 +12,14 @@ export const MessageField: FC<ActiveUser> = ({ activeUser }) => {
   const [error, setError] = useState("")
   const [value, setValue] = useState("")
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    console.log({ id: activeUser, value: value })
     e.preventDefault()
     fetchData("messages", {
       method: "POST",
-      headers: new Headers({
-        Accept: "application/json",
-        "Content-Type": "application/json;charset=UTF-8",
-      }),
-      body: { id: activeUser, value: value },
+      body: { activeUser, value },
     }).catch(({ message }: Error) => {
       setError(message)
     })
+    setValue("")
   }
   return (
     <S.MessageField>

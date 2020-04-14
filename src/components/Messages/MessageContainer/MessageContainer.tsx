@@ -8,7 +8,8 @@ interface ActiveUser {
 }
 
 interface Item {
-  id?: number | string
+  id?: string | number
+  activeUser?: ActiveUser
   value: string | null
 }
 interface Message {
@@ -24,14 +25,15 @@ export const MessageContainer: FC<ActiveUser> = ({ activeUser }) => {
 
   return (
     <S.MessagesContainer>
-      You've got {messages.filter(({ id }) => id == activeUser).length} new
+      You've got{" "}
+      {messages.filter(({ activeUser }) => activeUser == activeUser).length} new
       messages
       {messages &&
         messages
-          .filter(({ id }) => id == activeUser)
-          .map(({ id, value }) => (
+          .filter(({ activeUser }) => activeUser == activeUser)
+          .map(({ id, activeUser, value }) => (
             <span key={id}>
-              User{id}: {value}
+              User{activeUser}: {value}
             </span>
           ))}
       <MessageField {...{ activeUser }} />
