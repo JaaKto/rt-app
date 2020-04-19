@@ -2,7 +2,6 @@ import React, { useState, FC, FormEvent, ChangeEvent } from "react"
 import { fetchData } from "common/utils"
 import { Input } from "common/UI"
 import * as S from "./MessageField.styles"
-import { Message } from "./index"
 
 interface ActiveUser {
   activeUser: number | null

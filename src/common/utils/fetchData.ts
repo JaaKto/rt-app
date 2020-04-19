@@ -15,7 +15,7 @@ const handleError = (res: Response) => {
 }
 
 const getUrl = (endpoint: string) => {
-  switch (endpoint.split("/")[0]) {
+  switch (endpoint) {
     case "login":
       return loginUrl(endpoint)
     case "register":
@@ -32,23 +32,11 @@ const getUrl = (endpoint: string) => {
 export const fetchData = <T>(
   endpoint: string,
   options = {} as Options,
-): Promise<T> => {
-  console.log("endpoint", endpoint)
-  console.log("options", options)
-  console.log("method", options.method || "GET")
-  console.log("mode", {
-    mode: options.method === "DELETE" ? "no-cors" : "cors",
-  })
-  return fetch(getUrl(endpoint), {
+): Promise<T> =>
+  fetch(getUrl(endpoint), {
     method: options.method || "GET",
-    // mode: options.method === "DELETE" ? "no-cors" : "cors", // no-cors, *cors, same-origin
-    // cache: "reload", // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: "omit", // include, *same-origin, omit
-    // redirect: "follow", // manual, *follow, error
-    referrerPolicy: "no-referrer", // no-referrer, *client
     headers: options.headers,
     body: JSON.stringify(options.body),
   })
     .then(handleError)
     .then((res) => res.json())
-}

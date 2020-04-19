@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react"
 import { fetchData } from "common/utils"
 import { UserList } from "../UserList"
 import { MessageContainer } from "./MessageContainer"
-import { MessageField } from "./MessageContainer/MessageField"
 import * as S from "./Messages.styles"
 import { User } from "."
 
