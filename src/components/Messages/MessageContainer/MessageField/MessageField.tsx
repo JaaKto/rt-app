@@ -27,6 +27,7 @@ export const MessageField: FC<ActiveUser> = ({ activeUser }) => {
           name="message"
           type="input"
           placeholder="Enter message"
+          value={value}
           handleChange={(e: ChangeEvent<HTMLInputElement>) =>
             setValue(e.target.value)
           }

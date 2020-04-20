@@ -5,10 +5,14 @@ import { Input } from "common/UI"
 import { inputList } from "./utils"
 import * as S from "./Login.styles"
 
+interface state {
+  [key: string]: string
+}
+
 export const Login: FC = () => {
   const { push } = useHistory()
   const [error, setError] = useState("")
-  const [state, setState] = useState({
+  const [state, setState] = useState<state>({
     email: "",
     password: "",
   })
@@ -38,6 +42,7 @@ export const Login: FC = () => {
         {inputList.map((field) => (
           <Input
             key={field.id}
+            value={state[field.name]}
             handleChange={(e: ChangeEvent<HTMLInputElement>) =>
               setState({ ...state, [field.name]: e.target.value })
             }
