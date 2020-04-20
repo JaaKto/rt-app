@@ -1,5 +1,4 @@
 import React, { FC, FormEvent, Dispatch, SetStateAction } from "react"
-import { fetchData } from "common/utils"
 import { Input } from "common/UI"
 import * as S from "./MessageField.styles"
 

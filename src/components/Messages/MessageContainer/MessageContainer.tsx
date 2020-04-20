@@ -1,19 +1,11 @@
-import React, {
-  FC,
-  useState,
-  useEffect,
-  Dispatch,
-  SetStateAction,
-  FormEvent,
-} from "react"
+import React, { FC, Dispatch, SetStateAction, FormEvent } from "react"
 import * as S from "./MessageContainer.styles"
-import { fetchData } from "common/utils"
 import { MessageField } from "./MessageField"
 
 interface Item {
-  id?: string | number
-  activeUser?: number | null
-  value?: string | null
+  id: string | number
+  activeUser: number | null
+  value: string | null
   date: string
 }
 interface ActiveUser {
@@ -31,10 +23,6 @@ export const MessageContainer: FC<ActiveUser> = ({
   sendMessage,
   activeUser,
 }) => {
-  // useEffect(() => {
-  //   fetchData<Message>("messages").then((res) => setMessages(res.Items))
-  // }, [])
-  let a = new Date()
   return (
     <S.MessagesContainer>
       {messages

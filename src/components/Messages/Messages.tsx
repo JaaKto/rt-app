@@ -6,9 +6,9 @@ import * as S from "./Messages.styles"
 import { User } from "."
 
 interface Item {
-  id?: string | number
-  activeUser?: number | null
-  value?: string | null
+  id: string | number
+  activeUser: number | null
+  value: string | null
   date: string
 }
 
