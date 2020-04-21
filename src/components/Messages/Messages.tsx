@@ -3,22 +3,10 @@ import { fetchData } from "common/utils"
 import { UserList } from "../UserList"
 import { MessageContainer } from "./MessageContainer"
 import * as S from "./Messages.styles"
-import { User } from "."
-
-interface Item {
-  id: string | number
-  activeUser: number | null
-  value: string | null
-  date: string
-}
-
-interface Messages {
-  Items: Item[]
-}
+import { User, Item, Data } from "."
 
 export default () => {
   const [messages, setMessages] = useState<Item[]>([])
-
   const [activeUser, setActiveUser] = useState<number | null>(null)
   const [users, setUsers] = useState<User[]>([])
   const [error, setError] = useState("")
@@ -36,7 +24,7 @@ export default () => {
   }
 
   useEffect(() => {
-    fetchData<Messages>("messages").then((res) => setMessages(res.Items))
+    fetchData<Data>("messages").then((res) => setMessages(res.Items))
   }, [message])
 
   useEffect(() => {

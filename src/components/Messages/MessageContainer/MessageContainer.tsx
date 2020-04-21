@@ -1,20 +1,7 @@
-import React, { FC, Dispatch, SetStateAction, FormEvent } from "react"
+import React, { FC } from "react"
 import * as S from "./MessageContainer.styles"
 import { MessageField } from "./MessageField"
-
-interface Item {
-  id: string | number
-  activeUser: number | null
-  value: string | null
-  date: string
-}
-interface ActiveUser {
-  messages: Item[]
-  message: string
-  setMessage: Dispatch<SetStateAction<string>>
-  sendMessage: (event: FormEvent<HTMLFormElement>) => void
-  activeUser: number | null
-}
+import { ActiveUser } from "../User"
 
 export const MessageContainer: FC<ActiveUser> = ({
   messages,
