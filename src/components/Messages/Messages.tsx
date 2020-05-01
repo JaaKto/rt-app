@@ -1,13 +1,31 @@
-import React, { useState, useEffect } from "react"
-import { fetchData } from "../../common/utils"
+import React, { useState, useEffect, FormEvent } from "react"
+import { fetchData } from "common/utils"
 import { UserList } from "../UserList"
 import { MessageContainer } from "./MessageContainer"
 import * as S from "./Messages.styles"
-import { User } from "."
+import { User, Item, Data } from "."
 
 export default () => {
-  const [activeUser, setActiveUser] = useState<number | null>(null)
+  const [messages, setMessages] = useState<Item[]>([])
+  const [activeUser, setActiveUser] = useState<number | undefined>(undefined)
   const [users, setUsers] = useState<User[]>([])
+  const [error, setError] = useState("")
+  const [message, setMessage] = useState("")
+  const sendMessage = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    fetchData("messages", {
+      method: "POST",
+      body: { activeUser, value: message, date: new Date() },
+    })
+      .catch(({ message }: Error) => {
+        setError(message)
+      })
+      .then(() => setMessage(""))
+  }
+
+  useEffect(() => {
+    fetchData<Data>("messages").then((res) => setMessages(res.Items))
+  }, [message])
 
   useEffect(() => {
     fetchData<User[]>("simpleAPI").then((res) => setUsers(res))
@@ -16,7 +34,9 @@ export default () => {
   return (
     <S.Messages>
       <UserList {...{ users, activeUser, setActiveUser }} />
-      <MessageContainer {...{ activeUser }} />
+      <MessageContainer
+        {...{ messages, message, setMessage, sendMessage, activeUser }}
+      />
     </S.Messages>
   )
 }

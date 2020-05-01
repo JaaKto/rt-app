@@ -9,4 +9,14 @@ export const User = styled.div`
   &:hover {
     background-color: #3d434d;
   }
+
+  span {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: green;
+    display: inline-block;
+    margin: 6px;
+    vertical-align: middle;
+  }
 `

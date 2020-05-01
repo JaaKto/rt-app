@@ -4,7 +4,7 @@ import { User } from "../Messages"
 
 interface UserList {
   users: User[]
-  activeUser: number | null
+  activeUser?: number
   setActiveUser: (id: number) => void
 }
 
@@ -20,7 +20,7 @@ export const UserList: FC<UserList> = ({
         onClick={() => setActiveUser(id)}
         isActive={id === activeUser}
       >
-        {id}. {username} ({age}) - {isActive ? "active" : "inactive"}
+        {id}. {username} ({age}) {isActive && <span />}
       </S.User>
     ))}
   </div>
