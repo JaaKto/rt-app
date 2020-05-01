@@ -4,7 +4,7 @@ import { User } from "../Messages"
 
 interface UserList {
   users: User[]
-  activeUser: number | null
+  activeUser?: number
   setActiveUser: (id: number) => void
 }
 

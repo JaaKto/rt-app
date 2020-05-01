@@ -6,6 +6,8 @@ import { inputList } from "./utils"
 import * as S from "./Login.styles"
 
 interface state {
+  email: string
+  password: string
   [key: string]: string
 }
 

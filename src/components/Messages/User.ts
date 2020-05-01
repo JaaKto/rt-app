@@ -12,12 +12,12 @@ export interface ActiveUser {
   message: string
   setMessage: Dispatch<SetStateAction<string>>
   sendMessage: (event: FormEvent<HTMLFormElement>) => void
-  activeUser: number | null
+  activeUser?: number
 }
 
 export interface Item {
   id: string | number
-  activeUser: number | null
+  activeUser?: number
   value: string | null
   date: string
 }

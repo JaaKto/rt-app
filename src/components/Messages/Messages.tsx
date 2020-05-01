@@ -7,7 +7,7 @@ import { User, Item, Data } from "."
 
 export default () => {
   const [messages, setMessages] = useState<Item[]>([])
-  const [activeUser, setActiveUser] = useState<number | null>(null)
+  const [activeUser, setActiveUser] = useState<number | undefined>(undefined)
   const [users, setUsers] = useState<User[]>([])
   const [error, setError] = useState("")
   const [message, setMessage] = useState("")
